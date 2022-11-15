@@ -1,0 +1,13 @@
+<h1>Here are all of our lost pets.. 😢</h1>
+
+<ul>
+  <% @pets.each do |pet| %>
+    <li>
+      <%= link_to pet.name, pet_path(pet) %>
+      -
+      <%= link_to "Mark as found", pet_path(pet), data: { turbo_method: :delete, turbo_confirm: "Are you sure you found it? Is it safe?"} %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Report Lost Pet", new_pet_path %>
